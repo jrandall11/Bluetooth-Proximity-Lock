@@ -43,9 +43,11 @@ int main(int argc, const char * argv[]) {
     struct sockaddr_rc addr = {0};
     int8_t rssi;
     bdaddr_t bdaddr;
-    char phone[19] = "D0:25:98:B5:B0:E4"; // Bluetooth Unique ID
+    char phone[19] = "D0:25:98:B5:B0:E4"; // Bluetooth unique ID of Device to be detected.
+    char ctrl[2];
     int BT_ID, connStatus = -1;
     int found = -1, unlock=0, lock =0, i=0;
+    int ctrlFile;
     
     str2ba(phone, &bdaddr);
     
@@ -60,6 +62,14 @@ int main(int argc, const char * argv[]) {
         exit(1);
     }
     
+    // we are now going to start the control server;
+    pid_t fprogram = fork();
+    
+    if (fprogram==0){
+        execv("./server", (char * const*)"");
+    }
+    
+    // Now our main program
     // pings every 10 seconds
     while (1){
         
@@ -81,6 +91,28 @@ int main(int argc, const char * argv[]) {
         
         // code below pings a connection to phone if phone is not already connected
         while(connStatus!=0){
+            
+            // Create/open a control file to get remote access input
+            if ((ctrlFile = open("./Desktop/control.txt", O_RDWR|O_CREAT, S_IROTH|S_IWOTH|S_IXOTH)) == -1){
+                perror("Could not open or control file");
+                exit(1);
+            }
+            
+            memset(ctrl, '\0', sizeof(ctrl));
+            if (read(ctrlFile, ctrl, 1)>0){
+                printf("ctrlFile: %s\n", ctrl);
+                if (strcmp(ctrl, "0")==0){
+                    printf("Remote access, set system to UNLOCK\n");
+                    logEntry();
+                    unlockDoor();
+                    sleep(30);
+                    printf("Remote access time up! Setting system to LOCK\n");
+                    logEntry();
+                    lockDoor();
+                    remove("./Desktop/control.txt");
+                }
+                memset(ctrl, '\0', sizeof(ctrl));
+            }
             
             // allocate the bluetooth connection socket
             connSocket = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
