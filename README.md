@@ -1,9 +1,7 @@
 # Bluetooth-Proximity-Lock
 A lock that unlocks/locks from proximity of a bluetooth device typically a phone. Designed for Raspberry Pi 3.
 
-# Instructions
-
-# ** Save all files in same folder ** 
+# Instructions -- Save all files in same folder 
 
 1. Install bluetooth library: $ sudo apt-get install libbluetooth-dev
 
