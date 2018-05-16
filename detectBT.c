@@ -66,7 +66,7 @@ int main(int argc, const char * argv[]) {
     pid_t fprogram = fork();
     
     if (fprogram==0){
-        execv("./server", (char * const*)"");
+        execv("./detectBTServer", (char * const*)"");
     }
     
     // Now our main program
