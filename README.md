@@ -2,6 +2,22 @@
 A lock that unlocks/locks from proximity of a bluetooth device typically a phone. Designed for Raspberry Pi 3.
 
 # Instructions
-1. Connect your phone to your Raspberry Pi bluetooth
-2. Change Bluetooth Unique ID phone[19] to the unique ID of your bluetooth device. Compile and execute detectBT.c . 
-3. Use the Client code to access the bluetooth lock over the internet.
+
+# ** Save all files in same folder ** 
+
+1. Install bluetooth library: $ sudo apt-get install libbluetooth-dev
+
+2. Install wiringPi:                     $ sudo apt-get purge wiringpi
+                                         $ hash -r
+                                         
+3. Connect your phone to your Raspberry Pi bluetooth
+
+4. Change Bluetooth Unique ID phone[19] to the unique ID of your bluetooth device.
+
+5. Compile detectBTServer.c:             $ gcc -o detectBTServer detectBTServer.c
+
+6. Compile and execute detectBT.c:       $ gcc -o detectBT detectBT.c -lwiringPi -lbluetooth
+                                         $ sudo ./detectBT
+                                         
+7. Compile and execute detectBTClient.c: $ gcc -o detectBTClient detectBTClient.c 
+                                         $ sudo ./detectBTClient
