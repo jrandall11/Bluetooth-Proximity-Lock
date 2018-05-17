@@ -6,7 +6,7 @@ A lock that unlocks/locks from proximity of a bluetooth device typically a phone
 1. Install bluetooth library: $ sudo apt-get install libbluetooth-dev
 
 2. Install wiringPi:                     $ sudo apt-get purge wiringpi <br />
-                                         $ hash -r
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ hash -r
                                          
 3. Connect your phone to your Raspberry Pi bluetooth
 
