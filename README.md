@@ -22,3 +22,5 @@ A lock that unlocks/locks from proximity of a bluetooth device typically a phone
                                          
 8. Compile and execute detectBTClient.c: $ gcc -o detectBTClient detectBTClient.c <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ sudo ./detectBTClient
+
+![Running example.jpg](http://i1191.photobucket.com/albums/z470/Josh_Randall/Screen%20Shot%202018-06-25%20at%208.39.55%20PM_zpssxo4ktxk.png)
